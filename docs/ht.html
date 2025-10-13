@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Conversor de Força para Aceleração</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #00ffcc;
+            text-align: center;
+            padding: 50px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 1em;
+        }
+        #output {
+            margin-top: 30px;
+            white-space: pre-line;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Conversor de Força para Aceleração</h1>
+
+    <label for="peso">Digite o peso do objeto (kg):</label><br>
+    <input type="number" id="peso" step="0.01"><br>
+
+    <label for="forca1">Digite a primeira força (N):</label><br>
+    <input type="number" id="forca1"><br>
+
+    <label for="forca2">Digite a segunda força (N):</label><br>
+    <input type="number" id="forca2"><br>
+
+    <button onclick="calcular()">Calcular</button>
+
+    <div id="output"></div>
+
+    <script>
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        async function calcular() {
+            const peso = parseFloat(document.getElementById('peso').value);
+            const forca1 = parseInt(document.getElementById('forca1').value);
+            const forca2 = parseInt(document.getElementById('forca2').value);
+            const output = document.getElementById('output');
+            output.innerText = "";
+
+            if (isNaN(peso) || isNaN(forca1) || isNaN(forca2) || peso === 0) {
+                output.innerText = "Por favor, insira valores válidos e certifique-se de que o peso não seja zero.";
+                return;
+            }
+
+            const resultado1 = forca1 - forca2;
+
+            output.innerText = "processando.";
+            await sleep(500);
+            output.innerText += ".";
+            await sleep(600);
+            output.innerText += ".";
+            await sleep(700);
+            output.innerText += ".\nprocessado com sucesso✅";
+            await sleep(900);
+            output.innerText += `\nO resultado das forças newtonianas deu: ${resultado1}`;
+
+            const aceleracao = resultado1 / peso;
+
+            output.innerText += "\n\naguarde.";
+            await sleep(700);
+            output.innerText += ".";
+            await sleep(800);
+            output.innerText += ".";
+            await sleep(900);
+            output.innerText += ".\ncalculado com sucesso✅";
+            await sleep(1000);
+            output.innerText += `\nAqui está o cálculo final da aceleração: ${aceleracao.toFixed(2)} m/s²`;
+
+            await sleep(6000);
+            output.innerText += "\n\n        O.B.R.I.G.A.D.O                   ";
+            await sleep(300);
+            output.innerText += "\n           P.O.R            ";
+            await sleep(300);
+            output.innerText += "\n            U.T.I.L.I.Z.A.R     ";
+            await sleep(300);
+            output.innerText += "\n           O        ";
+            await sleep(300);
+            output.innerText += "\n        C.O.N.V.E.R.S.O.R      ";
+            await sleep(300);
+            output.innerText += "\n            D.E           ";
+            await sleep(300);
+            output.innerText += "\n             F.O.R.Ç.A    ";
+            await sleep(300);
+            output.innerText += "\n                  P.A.R.A";
+            await sleep(300);
+            output.innerText += "\n                 A.C.E.L.E.R.A.Ç.Ã.O";
+        }
+    </script>
+
+</body>
+</html>
